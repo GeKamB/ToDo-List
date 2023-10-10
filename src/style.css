@@ -1,5 +1,52 @@
-div {
-    width: 100px;
-    height: 100px;
-    background-color: aqua;
+html {
+    
+
+}
+
+body {  
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.wrapper { 
+     
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 20% 35% 35% 10%;
+    
+}
+.header {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;  
+    background-color: rgb(44, 46, 44);
+    
+}
+.task-content {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;  
+    background-color: rgb(73, 232, 238);
+    
+}
+.projects {
+    padding: 0.5rem;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    background-color: rgb(158, 95, 160);
+    
+}
+.task-window {
+    padding: 1rem;
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: coral;
+    grid-column: 1 / 3;
+    grid-row: 4 / 5; 
 }
