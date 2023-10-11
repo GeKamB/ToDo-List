@@ -1,10 +1,10 @@
-html {
-    
+:root {
 
 }
 
 body {  
-    padding: 2rem;
+    background-color: whitesmoke;
+    padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,29 +12,42 @@ body {
 }
 
 .wrapper { 
-     
+    outline: 2px solid black;
+    background-color: #3eafe4;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 20% 35% 35% 10%;
     
 }
 .header {
+    
+    background-size: 600px 70px;
+    background-image: url(./pexels-tim-mossholder-1764702.jpg);
     grid-column: 1 / 3;
     grid-row: 1 / 2;  
     background-color: rgb(44, 46, 44);
     
 }
+h1 {
+    font-size: 2em;
+    font-family: monospace;
+    text-shadow: rgb(238, 233, 186) 2px 5px 12px;
+    color: rgb(7, 7, 7);
+}
 .task-content {
+    border-right: 2px black solid;
     grid-column: 1 / 2;
     grid-row: 2 / 3;  
-    background-color: rgb(73, 232, 238);
+    
     
 }
 .projects {
+    border-right: 2px black solid;
     padding: 0.5rem;
     grid-column: 1 / 2;
     grid-row: 3 / 4;
-    background-color: rgb(158, 95, 160);
+    
     
 }
 .task-window {
@@ -45,8 +58,7 @@ body {
 .footer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: coral;
+    align-items: center;    
     grid-column: 1 / 3;
     grid-row: 4 / 5; 
 }
