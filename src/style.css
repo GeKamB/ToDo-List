@@ -27,6 +27,7 @@ body {
     grid-column: 1 / 3;
     grid-row: 1 / 2;  
     background-color: rgb(44, 46, 44);
+    margin-bottom: 1rem;
     
 }
 h1 {
@@ -36,19 +37,28 @@ h1 {
     color: rgb(7, 7, 7);
 }
 .task-content {
-    border-right: 2px black solid;
+    
+    border-right: 1px rgb(231, 228, 228) solid;
     grid-column: 1 / 2;
     grid-row: 2 / 3;  
     
     
 }
 .projects {
-    border-right: 2px black solid;
+     
+    border-right: 1px rgb(231, 228, 228) solid;
     padding: 0.5rem;
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     
     
+}
+li {
+    margin-bottom: 0.5rem;
+}
+
+.projects-list, .task-content {
+        padding-right: 0.5em;
 }
 .task-window {
     padding: 1rem;
