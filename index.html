@@ -13,33 +13,65 @@
         <h1 class="logo">To Do App</h1>
     </div>
     <div class="task-content">
-        <ul class="tasks-menu">
-            <li class="tasks-li">Home</li>
+        <h2 class="list-title">Home</h2>
+        <ul class="tasks-menu">            
             <li class="tasks-li">Today</li>
             <li class="tasks-li">Upcoming</li>
             
         </ul>
     </div>
     <div class="projects">
-        <ul class="projects-list">
-            <li class="project">JavaScript</li>
-            <li class="project">Software Development</li>
-            <li class="project">Gym</li>
-        </ul>
+        <div>
+            <h2 class="list-title">Projects</h2>
+            <ul class="projects-list">
+                <li class="active-project">JavaScript</li>
+                <li class="project">Software Development</li>
+                <li class="project">Gym</li>
+            </ul>
+            <form action="" method="post">
+                <input type="text" name="" class="new-list" placeholder="new list name" aria-label="new list name" id="">
+                <button class="btn-list" aria-label="create new list">+</button>
+            </form>
+        </div>
+        
+       
     </div>
     
     <div class="task-window">
-        <div class="task"></div>
-        <div class="tasks-list">
-            <form action="" method="get">
-                <fieldset>
-                    <legend>Upcoming tasks</legend>
-                    
-                        <label for="task-id">
-                          <input type="checkbox" id="task-id" name="task-point" value="completed" />
-                          Learn JS classes <span>12/11/2023</span>
-                        </label>
-            </form>
+        <div class="task-header">
+            <h2 class="project-title">JavaScript</h2>
+            
+        </div>
+        <div class="todo-body">
+            
+            <div class="task">
+                <div>
+                    <input type="checkbox" checked name="" id="task-1">
+                    <label for="task-1" class="checked"> make something1</label>
+                </div>
+                <div>
+                    <button>high priority</button>
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
+            
+            </div>
+            <div class="task">
+                <div>
+                    <input type="checkbox" checked name="" id="task-1">
+                    <label for="task-1" class="checked"> make something1</label>
+                </div>
+                <div>
+                    <button>high priority</button>
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
+            
+            </div>
+        <form action="" method="post">
+            <input type="text" name="" class="new-toDo" placeholder="add new task" aria-label="new task name" id="">
+            <button class="btn-list" aria-label="create new list">+</button>
+        </form>
         </div>
     </div>
     <div class="footer"><h3 class="footer-content">The Odin Project</h3></div>
