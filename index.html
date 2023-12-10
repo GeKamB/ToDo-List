@@ -8,86 +8,89 @@
     
 </head>
 <body>
-   <div class="wrapper">
-    <div class="header">
-        <h1 class="logo">To Do App</h1>
-    </div>
-    <div class="task-content">
-        <h2 class="list-title">Home</h2>
-        <ul class="tasks-menu">            
-            <li class="tasks-li">Today</li>
-            <li class="tasks-li">Upcoming</li>
-            
-        </ul>
-    </div>
-    <div class="projects">
-        
-            <h2 class="list-title">Projects</h2>
-            <ul class="projects-list">
-                <li class="active-project">JavaScript</li>
-                <li class="project">Software Development</li>
-                <li class="project">Gym</li>
-            </ul>
-            <form action="" method="post">
-                <input type="text" name="" class="new-list" placeholder="new list name" aria-label="new list name" id="">
-                <button class="btn-list" aria-label="create new list">+</button>
-            </form>
-        
-        
-       
-    </div>
-    
-    <div class="task-window">
-        <div class="task-header">
-            <h2 class="project-title">JavaScript</h2>
-            
+   
+        <div class="header">
+            <h1 class="logo">To Do App</h1>
         </div>
-        <div class="todo-body">
+        <div class="menus">
+            <div class="task-content">
+                <h2 class="list-title">Home</h2>
+                <ul class="tasks-menu">
+                    <li class="project">Today</li>
+                    <li class="project">Upcoming</li>
             
-            <div class="task">
-                <div>
-                    <input type="checkbox" checked name="" id="task-1">
-                    <label for="task-1" class="checked"> make something1 <span class="dueDate">12/12/23</span></label>
-                </div>
-                <div>
-                    <button>description</button>
-                    <button>high priority</button>
-                    <button>edit</button>
-                    <button>delete</button>
-                </div>
-            
+                </ul>
             </div>
-            <div class="task">
-                <div>
-                    <input type="checkbox"  name="" id="task-1">
-                    <label for="task-1" > make something1 <span class="dueDate">14/12/23</span></label>
-                </div>
-                <div>
-                    <button>description</button>
-                    <button>high priority</button>
-                    <button>edit</button>
-                    <button>delete</button>
-                </div>
+            <div class="projects">
+            
+                    <h2 class="list-title">Projects</h2>
+                    <ul class="projects-list" data-lists>
+                        
+                    </ul>
+                    
+                        <form action="" data-new-list-form>
+                            <input type="text" name="" class="new" data-new-list-input placeholder="add project" aria-label="new list name" id="">
+                            <button class="btn add" aria-label="create new list">+</button>
+                        </form>
+                    
+            
+            
             
             </div>
         </div>
         
-            <div class="formDiv">
-                <form action="" method="post">
-                    <input type="text" name="" class="new-toDo" placeholder="add new task" aria-label="new task name" id="">
-                    <button class="btn-list" aria-label="create new list">+</button>
+        <div class="task-window">
+            <div class="task-header">
+                <h2 class="project-title">JavaScript</h2>
                 
-                </form>
-                <button>delete project</button>
+            </div>
+            <div class="todo-body">
+                
+                <div class="task">
+                    <div>
+                        <input type="checkbox" checked name="" id="task-1">
+                        <label for="task-1" ><span class="custom-checkbox"></span> make something154 <span class="dueDate">12/12/23</span></label>
+                    </div>
+                    <div>
+                        <button class="btn">details</button>
+                        <button class="btn high">high priority</button>
+                        
+                    </div>
+                
+                </div>
+                <div class="task">
+                    <div>
+                        <input type="checkbox"  name="" id="task-2">
+                        <label for="task-2" ><span class="custom-checkbox"></span> make something1 <span class="dueDate">14/12/23</span></label>
+                    </div>
+                    <div>
+                        <button class="btn">details</button>
+                        <button class="btn low">low priority</button>
+                        
+                    </div>
+                
+                </div>
             </div>
             
+                <div class="formDiv">
+                    <form action="" method="post">
+                        <input type="text" name="" class="new" placeholder="add new task" aria-label="new task name" id="new-task">
+                        <button class="btn add" aria-label="create new list">+</button>
+                    
+                    </form>
+                    <div class="delete-bttns">
+                        <button class="btn todo" >delete project</button>
+                        <button class="btn todo" >delete completed tasks</button>
+                    </div>
+                </div>
+                
+            
+            
+        </div>
+        <div class="footer"><h3 class="footer-content">The Odin Project</h3></div>
         
-        
-    </div>
-    <div class="footer"><h3 class="footer-content">The Odin Project</h3></div>
     
    
-  </div> 
    <script src="./index.bundle.js"></script>
 </body>
 </html>
