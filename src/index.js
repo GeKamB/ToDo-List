@@ -1,18 +1,22 @@
 
 import './normalize.css'
 import './style.css';
-import { compareAsc, format } from 'date-fns'
+import { compareAsc, format } from 'date-fns';
+import ToDo from './class.js'
 
 
 const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form');
 const newListInput = document.querySelector('[data-new-list-input]');
-
-
+const deleteProjectButton = document.querySelector('[data-delete-project-button]')
+const listDisplayContainer = document.querySelector('[data-list-display-container]')
+const listTitleElement = document.querySelector('[data-list-title]')
+const tasksContainer = document.querySelector('[data-tasks]')
+const taskTemplate = document.getElementById('task-template')
 
 const LOCAL_STORAGE_PROJECT_KEY = 'task.projects';
 const LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY = 'task.selectedListId'
-const projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
+let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY)) || [];
 let selectedProjectId = localStorage.getItem(LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY)
 
 listsContainer.addEventListener('click', e => {
@@ -21,6 +25,12 @@ listsContainer.addEventListener('click', e => {
         saveAndRender()
     }
 })
+
+deleteProjectButton.addEventListener('click', e => {
+    projects = projects.filter(project => project.id !== selectedProjectId)
+    selectedProjectId = null
+    saveAndRender()
+}) 
 
 newListForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -34,7 +44,12 @@ newListForm.addEventListener('submit', e => {
 });
 
 function createProject(name) {
-    return { id: Date.now().toString(), name: name, tasks: []}
+    return { id: Date.now().toString(), name: name, tasks: [{
+     id: 'dsfdefwe',
+     name: 'Teskkkt',
+     priority: 'high',
+     complete: false   
+    }]}      
 }
 
 function saveAndRender() {
@@ -44,23 +59,57 @@ function saveAndRender() {
 
 function save() {
     localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects))
-    localStorage.setItem(LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY, selectedProjectId)
+    localStorage.setItem(LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY, selectedProjectId) 
 }
 
 
 function render() {
     clearElement(listsContainer);
+    renderProjects()
+
+    const selectedList = projects.find(project => project.id === selectedProjectId)
+    if (selectedProjectId == null) {
+        listDisplayContainer.style.display = 'none'
+    } else {
+        listDisplayContainer.style.display = ''
+        listTitleElement.innerText = selectedList.name 
+        clearElement(tasksContainer)
+        renderTasks(selectedList)
+    }
+    
+};
+
+function renderTasks(selectedList) {
+    selectedList.tasks.forEach(task => {
+        const taskElement = document.importNode(taskTemplate.content, true)
+        const checkbox = taskElement.querySelector('input')
+        checkbox.id = task.id
+        checkbox.checked = task.complete
+        const label = taskElement.querySelector('label')
+        label.htmlFor = task.id
+        label.append(task.name)
+
+        const details = taskElement.querySelector('.details')
+        details.innerText ='details'
+        const priority = taskElement.querySelector('.priority')
+        priority.append(task.priority)
+
+        tasksContainer.appendChild(taskElement)
+    })
+}
+
+function renderProjects() {
     projects.forEach(project => {        
         const listElement = document.createElement('li')
         listElement.dataset.projectId = project.id
         listElement.classList.add('project')
         listElement.innerText = project.name
-    if (project.id === selectedProjectId) {
-        listElement.classList.add('active-project')
-    }
+        if (project.id === selectedProjectId) {
+            listElement.classList.add('active-project')
+        }
         listsContainer.appendChild(listElement)
-    })
-};
+        })
+}
 
 function clearElement(element) {
     while (element.firstChild) {
@@ -72,73 +121,11 @@ render();
 
 
 
-//              CLASSES
+
 const todoes = [];
 window.todoes = todoes;
 
-class ToDo {
-    constructor(title, description, dueDate, priority, notes) {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
-        this.notes = notes;
-        this.progress = 'in progress';
-    }
 
-    get changeProgress() {
-        return this.progress;
-    }
-
-    set changeProgress(value) {
-        if (value === 'in progress' || value === 'completed') {
-            this.progress = value;
-        } else {
-            console.error('Invalid progress value');
-        }
-    }
-
-    get changeTitle() {
-        return this.title;
-    }
-
-    set changeTitle(value) {
-        this.title = value;
-    }
-    get changeDescript() {
-        return this.description;
-    }
-
-    set changeDescript(value) {
-        this.description = value;
-    }
-
-    get changeDate() {
-        return this.dueDate;
-    }
-
-    set changeDate(value) {
-        this.dueDate = value;
-    }
-
-    get changePriority() {
-        return this.priority;
-    }
-
-    set changePriority(value) {
-        this.priority = value;
-    }
-
-    get changeNotes() {
-        return this.notes;
-    }
-
-    set changeNotes(value) {
-        this.notes = value;
-    }
-
- 
-}
 
 
 // add new ToDo to desired array (append para.)

@@ -67,19 +67,37 @@ body {
         align-items: end;
         
 }
-
-
-.active {    
-    font-weight: 700;
-    letter-spacing: 1px;
+#datetime {
+    order: 2;
 }
-
-.new {
+#prior-label {
+    color: blue;
+    font-weight: 700;
+    order: 3
+}
+#prior {
+    order: 4;
+}
+#story {
+    order: 6
+}
+#story-label {
+    order: 5
+}
+.formDiv form {
+    display: grid;
+    
+    
+    
+}
+#datetime, #prior, #story, .new  {
     background: transparent;
     border: 0;
     color: inherit;
-    border-bottom: 1px solid currentColor;
-    order: 2;
+    border-bottom: 1px solid currentColor;}
+
+.new {
+    order: 1;
    
 }
 .new:focus::placeholder {
@@ -108,7 +126,7 @@ body {
     
   }
   .btn.add {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-right: .25rem;
      
   }
