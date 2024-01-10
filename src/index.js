@@ -5,6 +5,7 @@ import dayjs from 'dayjs'
 import ToDo from './class.js'
 
 
+
 const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form');
 const newListInput = document.querySelector('[data-new-list-input]');
@@ -34,7 +35,7 @@ const pId = document.querySelector('#pId')
 const pDate = document.querySelector('#pDate')
 const pPriority = document.querySelector('#pPriority')
 const pDescription =document.querySelector('#pDescription')
-
+const editBttn = document.querySelector('#editBttn')
 
 
 saveAndRender()
@@ -64,6 +65,7 @@ tasksContainer.addEventListener('click', e=> {
         
         selectedTask.complete = e.target.checked
         saveAndRender()
+    
     }
     if (e.target.tagName.toLowerCase() === 'button') {        
         modal.style.display = 'block'
@@ -158,7 +160,7 @@ function renderModal(selectedTask) {
     pDate.textContent = `Due Date: ${selectedTask.dueDate},`
     pPriority.textContent =`Priority: ${selectedTask.priority}`
     pDescription.textContent = `Description: ${selectedTask.description}`
-
+    
 
 }
 
