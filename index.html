@@ -17,8 +17,8 @@
             <div class="task-content">
                 <h2 class="list-title">Home</h2>
                 <ul class="tasks-menu">
-                    <li class="project">Today</li>
-                    <li class="project">Upcoming</li>
+                    <li class="project" data-tasks-today>Today</li>
+                    <li class="project" data-upcoming-task>Upcoming</li>
             
                 </ul>
             </div>
@@ -46,22 +46,24 @@
                 
             </div>
             <div class="todo-body" data-tasks>
+                
             </div>
             
                 <div class="formDiv">
                     <form action="" method="post" data-new-task-form>
                         
-                        <input type="text" name="" class="new" placeholder="add new task" aria-label="new task name" id="new-task" required>
-                        <input type="date" name="datetime" id="datetime" required/>
-                        <label for="prior" id="prior-label">Priority:</label>
-                        <select name="priority" id="prior" required >
+                        <input type="text" data-new-task-name name="" class="new" placeholder="add new task" aria-label="new task name" id="new-task" required>
+                        <input type="date" data-new-task-date name="datetime"  id="datetime" />
+                        <label for="prior"  id="prior-label">Priority:</label>
+                        <select name="priority" data-new-task-priority id="prior" >
+                            <option value=""></option>
                             <option value="low">low</option>
                             <option value="medium">medium</option>
                             <option value="high">high</option>
                         </select>
                         
                         <label for="story" id="story-label">description:</label>
-                        <textarea id="story" name="story" ></textarea>
+                        <textarea data-new-task-description id="story" name="story" maxlength='180' ></textarea>
                         
                         <button class="btn add" aria-label="create new list">+</button>
                         
@@ -70,7 +72,7 @@
                     </form>
                     <div class="delete-bttns">
                         <button class="btn todo" data-delete-project-button>delete project</button>
-                        <button class="btn todo" >delete completed tasks</button>
+                        <button class="btn todo" data-deleteCompletedTask>delete completed tasks</button>
                     </div>
                 </div>
                 
@@ -78,17 +80,35 @@
             
         </div>
         <div class="footer"><h3 class="footer-content">The Odin Project</h3></div>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <span class="close">kkkk;</span>
+    <p id="pId"></p>
+    <p id="pDate"></p>
+    <p id="pPriority"></p>
+    <p id="pDescription"></p>
+  </div>
+
+</div>
+        
         <template id="task-template">
             <div class="task">
                 
                     <input type="checkbox" >
                     <label  ><span class="custom-checkbox"></span> <span class="dueDate"></span></label>
-                
-                
                     <button class="btn details"></button>
-                    <button class="btn priority"></button>
+                    <span data-span-task></span>                    
+                    <span class="btn priority"></span>                  
                     
-                
+               
+            </div>   
         </template>
         
     
