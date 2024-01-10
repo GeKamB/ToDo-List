@@ -1,12 +1,13 @@
 
 export default class ToDo {
-    constructor(title, description, dueDate, priority, notes) {
+    id = Date.now().toString()
+    complete = false
+    constructor(title, description, dueDate, priority) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
-        this.priority = priority;
-        this.notes = notes;
-        this.complete = false;
+        this.priority = priority;              
+        
     }
 
   
@@ -40,15 +41,7 @@ export default class ToDo {
 
     set changePriority(value) {
         this.priority = value;
-    }
-
-    get changeNotes() {
-        return this.notes;
-    }
-
-    set changeNotes(value) {
-        this.notes = value;
-    }
+    }    
 
  
 }
