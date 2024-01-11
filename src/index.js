@@ -121,22 +121,22 @@ newTaskForm.addEventListener('submit', e => {
 
 });
 
-function createProject(name) {
+ function createProject(name) {
     return { id: Date.now().toString(), name: name, tasks: []}      
 }
 
-function saveAndRender() {
+ function saveAndRender() {
     save()
     render()
 }
 
-function save() {
+ function save() {
     localStorage.setItem(LOCAL_STORAGE_PROJECT_KEY, JSON.stringify(projects))
     localStorage.setItem(LOCAL_STORAGE_SELECTED_PROJECT_ID_KEY, selectedProjectId) 
 }
 
 
-function render() {
+ function render() {
     clearElement(listsContainer);
     renderProjects()
 
@@ -154,27 +154,22 @@ function render() {
     
 };
 
-function renderModal(selectedTask) { 
-
+ function renderModal(selectedTask) { 
     pId.textContent = `Title: ${selectedTask.title}`
     pDate.textContent = `Due Date: ${selectedTask.dueDate},`
     pPriority.textContent =`Priority: ${selectedTask.priority}`
     pDescription.textContent = `Description: ${selectedTask.description}`
-    
-
 }
-
-function renderAllTasks() {
+ function renderAllTasks() {
+    listTitleElement.innerText = "All"
     const currentDate = dayjs();
 const formattedDate = currentDate.format('YYYY-MM-DD');
-console.log(formattedDate);
-    
-    clearElement(tasksContainer)
-    projects.forEach(project => renderTasks(project))
+console.log(formattedDate);    
+clearElement(tasksContainer)
+projects.forEach(project => renderTasks(project))
 }
 
-function renderTasksToday() {
-
+ function renderTasksToday() {
 
     clearElement(tasksContainer)
     listTitleElement.innerText = "Today"
@@ -204,7 +199,7 @@ function renderTasksToday() {
 
 
 
-function renderTasks(selectedList) {
+ function renderTasks(selectedList) {
     selectedList.tasks.forEach(task => {
         const taskElement = document.importNode(taskTemplate.content, true)        
         const checkbox = taskElement.querySelector('input')
@@ -234,7 +229,7 @@ function renderTasks(selectedList) {
 }
 
 
-function renderProjects() {
+ function renderProjects() {
     projects.forEach(project => {        
         const listElement = document.createElement('li')
         listElement.dataset.projectId = project.id
@@ -248,7 +243,7 @@ function renderProjects() {
         })
 }
 
-function clearElement(element) {
+ function clearElement(element) {
     while (element.firstChild) {
         element.removeChild(element.firstChild)
     };
