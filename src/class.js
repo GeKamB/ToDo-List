@@ -45,3 +45,7 @@ export default class ToDo {
 
  
 }
+
+export function createProject(name) {
+    return { id: Date.now().toString(), name: name, tasks: []}      
+}

@@ -3,6 +3,7 @@ import './normalize.css'
 import './style.css';
 import dayjs from 'dayjs'
 import ToDo from './class.js'
+import { createProject } from './class.js';
 
 
 
@@ -121,10 +122,7 @@ newTaskForm.addEventListener('submit', e => {
 
 });
 
- function createProject(name) {
-    return { id: Date.now().toString(), name: name, tasks: []}      
-}
-
+ 
  function saveAndRender() {
     save()
     render()
