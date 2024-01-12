@@ -143,10 +143,6 @@ body {
 .low {
     color: var(--low-prior);
 }
-.menus h2 {
-    padding-left: 1.1em;
-}
-
 .task  {    
     display:grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
