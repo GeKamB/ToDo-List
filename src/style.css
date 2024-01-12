@@ -251,13 +251,8 @@ body {
     cursor: pointer;
   }
   @media screen and (max-width: 400px) {
-    .logo {
+    .mobile {
         display: none;
       }
-    .priority {
-      display: none;
-    }
-    .footer {
-        display: none;
-      }
+    
   }
