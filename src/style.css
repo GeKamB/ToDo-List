@@ -250,3 +250,14 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
+  @media screen and (max-width: 400px) {
+    .logo {
+        display: none;
+      }
+    .priority {
+      display: none;
+    }
+    .footer {
+        display: none;
+      }
+  }
